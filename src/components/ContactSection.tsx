@@ -4,6 +4,7 @@ import {
   MessageCircle,
   Instagram,
   ArrowUpRight,
+  Mail,
 } from "lucide-react";
 
 const ContactSection = () => {
@@ -11,8 +12,8 @@ const ContactSection = () => {
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      value: "(11) 99999-9999",
-      href: "https://wa.me/5511999999999",
+      value: "+55 12 98894-0801",
+      href: "https://wa.me/5512988940801",
       external: true,
     },
     {
@@ -25,15 +26,15 @@ const ContactSection = () => {
     {
       icon: MapPin,
       label: "Localização",
-      value: "Av. Paulista, 1000 — Sala 501, São Paulo - SP",
-      href: "https://maps.google.com/?q=Av.+Paulista+1000+São+Paulo",
+      value: "Rua do Corrêa, nº 255, sala 15, Centro, Edifício Taubaté Office - Taubaté/SP",
+      href: "https://share.google/rn1bv3KiD4hE3QTD7",
       external: true,
     },
     {
-      icon: Phone,
-      label: "Telefone",
-      value: "(11) 3456-7890",
-      href: "tel:+551134567890",
+      icon: Mail,
+      label: "Email",
+      value: "anavilelaadv@gmail.com",
+      href: "mail:anavilelaadv@gmail.com",
       external: false,
     },
   ];
