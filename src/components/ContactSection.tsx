@@ -1,97 +1,161 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import {
+  Phone,
+  MapPin,
+  MessageCircle,
+  Instagram,
+  ArrowUpRight,
+} from "lucide-react";
 
 const ContactSection = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Placeholder
-  };
+  const contacts = [
+    {
+      icon: MessageCircle,
+      label: "WhatsApp",
+      value: "(11) 99999-9999",
+      href: "https://wa.me/5511999999999",
+      external: true,
+    },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      value: "@anajuvilelaa",
+      href: "https://www.instagram.com/anajuvilelaa/",
+      external: true,
+    },
+    {
+      icon: MapPin,
+      label: "Localização",
+      value: "Av. Paulista, 1000 — Sala 501, São Paulo - SP",
+      href: "https://maps.google.com/?q=Av.+Paulista+1000+São+Paulo",
+      external: true,
+    },
+    {
+      icon: Phone,
+      label: "Telefone",
+      value: "(11) 3456-7890",
+      href: "tel:+551134567890",
+      external: false,
+    },
+  ];
 
   return (
-    <section id="contato" className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-sm tracking-widest uppercase text-secondary mb-2">Contato</p>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
+    <section id="contato" className="py-32 bg-background overflow-hidden">
+      <style>{`
+        @keyframes fadeSlideUp {
+          from {
+            opacity: 0;
+            transform: translateY(24px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes expandLine {
+          from { width: 0; }
+          to { width: 4rem; }
+        }
+
+        .contact-header {
+          animation: fadeSlideUp 0.7s ease forwards;
+        }
+
+        .contact-item {
+          opacity: 0;
+          animation: fadeSlideUp 0.6s ease forwards;
+        }
+
+        .contact-item:nth-child(1) { animation-delay: 0.15s; }
+        .contact-item:nth-child(2) { animation-delay: 0.25s; }
+        .contact-item:nth-child(3) { animation-delay: 0.35s; }
+        .contact-item:nth-child(4) { animation-delay: 0.45s; }
+
+        .line-animate {
+          animation: expandLine 0.8s ease 0.1s forwards;
+          width: 0;
+        }
+
+        .contact-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0%;
+          height: 1px;
+          background-color: hsl(var(--primary) / 0.4);
+          transition: width 0.4s ease;
+        }
+
+        .contact-link:hover::after {
+          width: 100%;
+        }
+
+        .icon-wrap {
+          transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .contact-link:hover .icon-wrap {
+          transform: rotate(-8deg) scale(1.1);
+          background-color: hsl(var(--primary) / 0.15);
+        }
+
+        .arrow-icon {
+          transition: transform 0.3s ease, opacity 0.3s ease;
+          opacity: 0.3;
+        }
+
+        .contact-link:hover .arrow-icon {
+          transform: translate(3px, -3px);
+          opacity: 1;
+        }
+      `}</style>
+
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="contact-header text-center mb-20">
+          <p className="text-xs tracking-[0.3em] uppercase text-primary/50 mb-3">
+            Contato
+          </p>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-5">
             Entre em Contato
           </h2>
-          <div className="w-16 h-0.5 bg-primary/40 mx-auto" />
+          <div className="line-animate h-px bg-primary/30 mx-auto" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16">
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <Label htmlFor="name" className="text-foreground/80">Nome</Label>
-              <Input id="name" placeholder="Seu nome completo" className="mt-1.5 bg-card border-border/60 focus:border-primary" />
-            </div>
-            <div>
-              <Label htmlFor="email" className="text-foreground/80">E-mail</Label>
-              <Input id="email" type="email" placeholder="seu@email.com" className="mt-1.5 bg-card border-border/60 focus:border-primary" />
-            </div>
-            <div>
-              <Label htmlFor="phone" className="text-foreground/80">Telefone</Label>
-              <Input id="phone" placeholder="(11) 99999-9999" className="mt-1.5 bg-card border-border/60 focus:border-primary" />
-            </div>
-            <div>
-              <Label htmlFor="message" className="text-foreground/80">Mensagem</Label>
-              <Textarea id="message" placeholder="Descreva brevemente sua necessidade..." className="mt-1.5 bg-card border-border/60 focus:border-primary min-h-[120px]" />
-            </div>
-            <Button type="submit" size="lg" className="w-full rounded-sm tracking-wide uppercase text-sm">
-              Enviar Mensagem
-            </Button>
-          </form>
+        <div className="flex flex-col gap-1">
+          {contacts.map((item, index) => (
+            <div key={index} className="contact-item">
+              <a
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
+                className="contact-link group relative flex items-center justify-between gap-6 py-8 border-b border-primary/10 transition-colors duration-300"
+              >
+                <div className="flex items-center gap-5">
+                  <div className="icon-wrap w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center shrink-0">
+                    <item.icon className="w-5 h-5 text-primary" />
+                  </div>
 
-          {/* Contact info */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="font-serif text-xl font-semibold text-primary mb-6">Informações de Contato</h3>
-              <div className="space-y-5">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <Phone className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-sm text-foreground">Telefone</p>
-                    <p className="text-muted-foreground text-sm">(11) 3456-7890</p>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-6">
+                    <span className="text-[10px] tracking-[0.25em] uppercase text-primary/40 sm:w-28 shrink-0 font-semibold">
+                      {item.label}
+                    </span>
+                    <span className="text-sm text-primary/80 group-hover:text-primary transition-colors duration-300 font-semibold">
+                      {item.value}
+                    </span>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <Mail className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-sm text-foreground">E-mail</p>
-                    <p className="text-muted-foreground text-sm">contato@dramariasilva.com.br</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <MapPin className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-sm text-foreground">Endereço</p>
-                    <p className="text-muted-foreground text-sm">Av. Paulista, 1000 - Sala 501<br />São Paulo - SP</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <MessageCircle className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-sm text-foreground">WhatsApp</p>
-                    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className="text-primary text-sm hover:underline">
-                      (11) 99999-9999
-                    </a>
-                  </div>
-                </div>
-              </div>
+
+                <ArrowUpRight className="arrow-icon w-4 h-4 text-primary shrink-0" />
+              </a>
             </div>
-          </div>
+          ))}
         </div>
+
+        <div
+          className="text-center mt-16 contact-item"
+          style={{ animationDelay: "0.55s" }}
+        ></div>
       </div>
     </section>
   );

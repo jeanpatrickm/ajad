@@ -28,15 +28,19 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur shadow-md" : "bg-transparent"
+        isScrolled
+          ? "bg-background/95 backdrop-blur shadow-md"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <button onClick={() => scrollTo("#inicio")} className="font-serif text-xl font-bold text-primary">
-          Dra. Maria Silva
+        <button
+          onClick={() => scrollTo("#inicio")}
+          className="font-serif text-xl font-bold text-primary"
+        >
+          Ana Julia
         </button>
 
-        {/* Desktop */}
         <ul className="hidden md:flex gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -51,12 +55,14 @@ const Navbar = () => {
         </ul>
 
         {/* Mobile toggle */}
-        <button className="md:hidden text-primary" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          className="md:hidden text-primary"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur border-t border-border">
           <ul className="flex flex-col items-center gap-4 py-6">
