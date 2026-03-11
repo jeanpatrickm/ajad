@@ -1,4 +1,5 @@
 import { hydrateRoot } from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import "./index.css";
 
@@ -9,4 +10,4 @@ const root = document.getElementById("root");
 
 if (!root) throw new Error("No #root element found");
 
-hydrateRoot(root, <App />);
+hydrateRoot(root, <HelmetProvider><App /></HelmetProvider>);

@@ -1,5 +1,6 @@
 import { renderToString } from "react-dom/server";
 import { createElement } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import { mkdir } from "node:fs/promises";
 import { join } from "node:path";
 
@@ -28,13 +29,32 @@ async function getManifestAssets() {
   return { scriptSrc, cssSrc };
 }
 
-function pageTemplate(html: string, scriptSrc: string, cssSrc: string | null, title = "App") {
+function renderWithHelmet(component: React.ReactElement) {
+  const helmetContext: Record<string, any> = {};
+  const html = renderToString(
+    createElement(HelmetProvider, { context: helmetContext }, component)
+  );
+  // toString() on each helmet property renders the full tag string,
+  // so anything declared in <Helmet> (title, meta, link, script, style...)
+  // gets included without us needing to know about it in advance
+  const head = Object.values(helmetContext.helmet)
+    .map((val: any) => val.toString())
+    .join("\n    ");
+  return { html, head };
+}
+
+function pageTemplate(
+  html: string,
+  head: string,
+  scriptSrc: string,
+  cssSrc: string | null,
+) {
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${title}</title>
+    ${head}
     ${cssSrc ? `<link rel="stylesheet" href="${cssSrc}" />` : ""}
   </head>
   <body>
@@ -52,12 +72,12 @@ async function buildHTML() {
   await Promise.all([
     Bun.write(
       join(OUT_DIR, "index.html"),
-      pageTemplate(renderToString(createElement(App)), scriptSrc, cssSrc)
+      pageTemplate(...Object.values(renderWithHelmet(createElement(App))), scriptSrc, cssSrc)
     ).then(() => console.log("🖼️  HTML rendered → dist/index.html")),
 
     Bun.write(
       join(OUT_DIR, "404.html"),
-      pageTemplate(renderToString(createElement(NotFound)), scriptSrc, cssSrc, "404 - Not Found")
+      pageTemplate(...Object.values(renderWithHelmet(createElement(NotFound))), scriptSrc, cssSrc)
     ).then(() => console.log("🖼️  HTML rendered → dist/404.html")),
   ]);
 }
