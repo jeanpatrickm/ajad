@@ -1,26 +1,30 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+export default function App() {
+  return (
+    <>
+      <Helmet>
+        <title>Ana Julia | Advogada em Vale do Paraíba</title>
+        <meta name="description" content="Advogada em Taubaté, Pindamonhangaba, São José dos Campos e região do Vale do Paraíba. Entre em contato para uma consulta." />
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
 
-export default App;
+        {/* Favicon */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+        {/* Local SEO */}
+        <meta name="geo.region" content="BR-SP" />
+        <meta name="geo.placename" content="Vale do Paraíba, São Paulo" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Ana Julia | Advogada em Vale do Paraíba" />
+        <meta property="og:description" content="Advogada em Taubaté, Pindamonhangaba, São José dos Campos e região do Vale do Paraíba." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="pt_BR" />
+        {/* <meta property="og:url" content="https://anaJulia.com.br" /> */}
+      </Helmet>
+
+      <Index />
+    </>
+  )
+}
