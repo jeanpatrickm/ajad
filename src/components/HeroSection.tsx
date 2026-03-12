@@ -26,12 +26,12 @@ const HeroSection = () => {
     {
       icon: <Linkedin size={16} />,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/",
+      href: "https://www.linkedin.com/in/ana-j%C3%BAlia-barbosa-982752322/",
     },
     {
       icon: <MessageCircle size={16} />,
       label: "WhatsApp",
-      href: "https://wa.me/55",
+      href: "https://wa.me/5512988940801",
     },
   ];
 
