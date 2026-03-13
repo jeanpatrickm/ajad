@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
-    text: "A Dra. Ana Julia foi excepcional no meu caso de divórcio. Muito atenciosa e profissional, sempre me manteve informada sobre cada etapa do processo.",
+    text: "A Dra. Ana Júlia foi excepcional no meu caso de divórcio. Muito atenciosa e profissional, sempre me manteve informada sobre cada etapa do processo.",
     name: "Ana Souza",
     context: "Direito de Família",
   },
   {
-    text: "Graças ao trabalho da Dra. Ana Julia, consegui todos os meus direitos trabalhistas. Recomendo de olhos fechados para qualquer pessoa que precise de uma advogada competente.",
+    text: "Graças ao trabalho da Dra. Ana Júlia, consegui todos os meus direitos trabalhistas. Recomendo de olhos fechados para qualquer pessoa que precise de uma advogada competente.",
     name: "Carlos Oliveira",
     context: "Direito Trabalhista",
   },

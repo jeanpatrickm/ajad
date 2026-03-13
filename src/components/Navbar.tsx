@@ -38,7 +38,7 @@ const Navbar = () => {
           onClick={() => scrollTo("#inicio")}
           className="font-serif text-xl font-bold text-primary"
         >
-          Ana Julia
+          Ana Júlia
         </button>
 
         <ul className="hidden md:flex gap-8">

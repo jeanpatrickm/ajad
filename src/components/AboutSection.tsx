@@ -1,6 +1,6 @@
 import { Award, BookOpen, Users } from "lucide-react";
 
-const BASE_URL = import.meta.env.BASE_URL
+const BASE_URL = import.meta.env.BASE_URL;
 
 const AboutSection = () => {
   return (
@@ -24,12 +24,12 @@ const AboutSection = () => {
               Sobre
             </p>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
-              Ana Julia
+              Ana Júlia
             </h2>
             <div className="w-16 h-0.5 bg-primary/40 mb-6" />
             <p className="text-foreground/80 leading-relaxed mb-4">
               Formada em Direito pela Universidade de Taubaté (UNITAU), a Dra.
-              Ana Julia destacou-se ainda durante a graduação pelo seu
+              Ana Júlia destacou-se ainda durante a graduação pelo seu
               desempenho acadêmico e dedicação à carreira jurídica, conquistando
               a aprovação no Exame da Ordem dos Advogados do Brasil (OAB) antes
               mesmo de concluir o curso.

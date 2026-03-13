@@ -58,7 +58,7 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center">
           <p className="text-xs text-primary-foreground/50">
-            © {new Date().getFullYear()} Ana Julia — Todos os direitos
+            © {new Date().getFullYear()} Ana Júlia — Todos os direitos
             reservados | Desenvolvido por{" "}
             <a
               href="https://morzen.com.br"
