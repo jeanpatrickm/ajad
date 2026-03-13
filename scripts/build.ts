@@ -5,6 +5,7 @@ import { mkdir } from "node:fs/promises";
 import { join } from "node:path";
 
 const OUT_DIR = "./dist";
+const BASE_NAME = "/ajad/"
 
 async function buildClient() {
   const proc = Bun.spawn(["bunx", "vite", "build"], {
@@ -24,8 +25,8 @@ async function buildClient() {
 async function getManifestAssets() {
   const manifest = await Bun.file(join(OUT_DIR, ".vite/manifest.json")).json();
   const entry = manifest["index.html"] ?? manifest["src/main.tsx"];
-  const scriptSrc = entry?.file ? `/${entry.file}` : "/assets/main.js";
-  const cssSrc = entry?.css?.[0] ? `/${entry.css[0]}` : null;
+  const scriptSrc = entry?.file ? `${BASE_NAME}${entry.file}` : "/assets/main.js";
+  const cssSrc = entry?.css?.[0] ? `${BASE_NAME}${entry.css[0]}` : null;
   return { scriptSrc, cssSrc };
 }
 
