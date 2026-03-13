@@ -1,5 +1,7 @@
 import { Award, BookOpen, Users } from "lucide-react";
 
+const BASE_URL = import.meta.env.BASE_URL
+
 const AboutSection = () => {
   return (
     <section id="sobre" className="py-24 bg-card">
@@ -8,7 +10,7 @@ const AboutSection = () => {
           <div className="relative">
             <div className="aspect-[3/4] bg-muted rounded-sm overflow-hidden relative">
               <img
-                src="/aj.jpeg"
+                src={`${BASE_URL}aj.jpeg`}
                 alt="aj"
                 className="w-full h-full object-cover"
               />
