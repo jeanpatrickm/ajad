@@ -40,7 +40,7 @@ const HeroSection = () => {
     {
       icon: <Instagram size={16} />,
       label: "Instagram",
-      href: "https://instagram.com/",
+      href: "https://www.instagram.com/anajuvilelaa/",
     },
     {
       icon: <Linkedin size={16} />,

@@ -26,7 +26,8 @@ const ContactSection = () => {
     {
       icon: MapPin,
       label: "Localização",
-      value: "Rua do Corrêa, nº 255, sala 15, Centro, Edifício Taubaté Office - Taubaté/SP",
+      value:
+        "Rua do Corrêa, nº 255, sala 15, Centro, Edifício Taubaté Office - Taubaté/SP",
       href: "https://share.google/rn1bv3KiD4hE3QTD7",
       external: true,
     },
@@ -40,7 +41,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contato" className="py-32 bg-background overflow-hidden">
+    <section id="contato" className="py-32 bg-card overflow-hidden">
       <style>{`
         @keyframes fadeSlideUp {
           from {

@@ -54,14 +54,14 @@ const AboutSection = () => {
               </div>
               <div className="flex items-start gap-3">
                 <BookOpen className="w-5 h-5 text-primary mt-1 shrink-0" />
-                <div>
+                {/*} <div>
                   <p className="font-semibold text-sm text-foreground">
                     +1 anos
                   </p>
                   <p className="text-xs text-muted-foreground">
                     De Experiência
                   </p>
-                </div>
+                </div>*/}
               </div>
             </div>
           </div>
