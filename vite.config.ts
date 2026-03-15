@@ -4,7 +4,6 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/ajad/",
   server: {
     host: "::",
     port: 3000,

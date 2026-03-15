@@ -29,7 +29,7 @@ export default function App() {
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="pt_BR" />
-        {/* <meta property="og:url" content="https://anaJulia.com.br" /> */}
+        <meta property="og:url" content="https://anajuliavilelaadvogada.com/" />
       </Helmet>
 
       <Index />
