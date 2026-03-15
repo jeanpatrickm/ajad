@@ -37,8 +37,7 @@ const AboutSection = () => {
             <p className="text-foreground/80 leading-relaxed mb-8">
               Com uma formação sólida e olhar estratégico para cada caso,
               construiu sua trajetória profissional pautada na ética,
-              responsabilidade e atendimento próximo aos clientes, sempre
-              buscando soluções jurídicas seguras, eficientes e personalizadas.
+              responsabilidade e atendimento próximo aos clientes.
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div className="flex items-start gap-3">
