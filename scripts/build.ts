@@ -5,7 +5,7 @@ import { mkdir } from "node:fs/promises";
 import { join } from "node:path";
 
 const OUT_DIR = "./dist";
-const BASE_NAME = "/ajad/"
+const BASE_NAME = "/"
 
 async function buildClient() {
   const proc = Bun.spawn(["bunx", "vite", "build"], {
