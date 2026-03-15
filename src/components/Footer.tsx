@@ -27,7 +27,7 @@ const Footer = () => {
                 { label: "Início", href: "#inicio" },
                 { label: "Sobre", href: "#sobre" },
                 { label: "Áreas de Atuação", href: "#areas" },
-                { label: "Depoimentos", href: "#depoimentos" },
+                //{ label: "Depoimentos", href: "#depoimentos" },
                 { label: "Contato", href: "#contato" },
               ].map((link) => (
                 <li key={link.href}>
@@ -47,11 +47,12 @@ const Footer = () => {
             <p className="text-sm text-primary-foreground/70 leading-relaxed">
               OAB/SP 123.456
               <br />
-              Av. Paulista, 1000 - Sala 501
+              Rua do Corrêa, nº 255, sala 15, Centro, Edifício Taubaté Office -
+              Taubaté/SP
               <br />
               São Paulo - SP
               <br />
-              CEP 01310-100
+              12010-080
             </p>
           </div>
         </div>
